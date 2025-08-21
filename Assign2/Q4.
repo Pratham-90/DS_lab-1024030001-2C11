@@ -12,7 +12,7 @@ int main(){
 	cout<<"Enter second string --> ";
 	cin>>s2;
 		
-	s3 = s1 + s2;	
+	s3 = s1  + s2;	
 	cout<<s3;	
 }
 
