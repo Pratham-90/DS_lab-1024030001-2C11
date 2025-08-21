@@ -12,7 +12,7 @@ int main(){
 	cout<<"Enter second string --> ";
 	cin>>s2;
 		
-	s3 = s1  + s2;	
+	s3 = s1 + s2;	
 	cout<<s3;	
 }
 
@@ -60,5 +60,72 @@ int main() {
     getline(cin,s);    
     deleteVowels(s);
     cout << "After removing vowels: " << s << endl;
+    return 0;
+}
+
+// (d) Write a program to sort the strings in alphabetical order. 
+#include<iostream>
+#include<string>
+using namespace std;
+void input(string*& arr,int size){    
+    arr = new string[size];
+    for( int i=0;i<size;i++){
+        cout << "Enter string " << i+1 << " = ";
+        cin >> arr[i];
+    }
+}
+void sortString(string *arr,int size){
+    for(int i=0;i<size;i++){
+        for(int j=i +1;j<size;j++){
+            if(arr[i] > arr[j]){
+                string c = arr[i];
+                arr[i] = arr[j];
+                arr[j] = c;
+            }
+        }
+    }
+    cout << "Sorted string's = ";
+    for(int i=0;i<size;i++){
+        cout << arr[i] << endl;
+    }
+}
+
+int main(){
+    int size;
+    string* arr = nullptr;
+     cout << "Enter the number of strings = " << endl;
+    cin >> size;
+    input(arr,size);
+    sortString(arr,size);
+    return 0;
+}
+
+// (e) Write a program to convert a character from uppercase to lowercase. 
+#include<iostream>
+using namespace std;
+
+int main(){
+    int size;
+    cout << "Enter the size of array" << endl;
+    cin >> size;
+    char arr[size] = {};
+    
+    cout << "Enter the elements of the array" << endl;
+
+    for(int i=0;i<size;i++){
+        cout << "Enter the element " << i +1 << " = " << endl;
+        cin >> arr[i] ;
+    }
+
+    for (int i = 0; i < size; i++) {
+        if (arr[i] >= 'A' && arr[i] <= 'Z') {
+            arr[i] = arr[i] + 32;  
+        }
+    }
+
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
