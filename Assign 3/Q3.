@@ -2,34 +2,34 @@
 #include <stack>
 using namespace std;
 
-// bool isbalanced(string s) {
-//   stack<char> st;
-//   for (int i = 0; i < s.size(); i++) {
-//     if (s[i] == '{' || s[i] == '(' || s[i] == '[') {
-//       st.push(s[i]);
-//     } else if (s[i] == '}' || s[i] == ')' || s[i] == ']') {
-//       if (st.empty()) {
-//         return false;
-//       }
-//       char top = st.top();
+bool isbalanced(string s) {
+  stack<char> st;
+  for (int i = 0; i < s.size(); i++) {
+    if (s[i] == '{' || s[i] == '(' || s[i] == '[') {
+      st.push(s[i]);
+    } else if (s[i] == '}' || s[i] == ')' || s[i] == ']') {
+      if (st.empty()) {
+        return false;
+      }
+      char top = st.top();
 
-//       if ((s[i] == ')' && top != '(') || (s[i] == '}' && top != '{') ||
-//           (s[i] == ']' && top != '[')) {
-//         return false;
-//       }
-//       st.pop();
-//     }
-//   }
-//   return st.empty();
-// }
+      if ((s[i] == ')' && top != '(') || (s[i] == '}' && top != '{') ||
+          (s[i] == ']' && top != '[')) {
+        return false;
+      }
+      st.pop();
+    }
+  }
+  return st.empty();
+}
 
-// int main() {
-//   string s;
-//   cout << "Enter an expression = ";
-//   cin >> s;
+int main() {
+  string s;
+  cout << "Enter an expression = ";
+  cin >> s;
 
-//   if (isbalanced(s))
-//     cout << "Balanced parentheses " << endl;
-//   else
-//     cout << "Not balanced parentheses " << endl;
-// }
+  if (isbalanced(s))
+    cout << "Balanced parentheses " << endl;
+  else
+    cout << "Not balanced parentheses " << endl;
+}
