@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stack>
+using namespace std;
+
+struct Stack {
+  int top;
+  int elements[100];
+};
+
+Stack init() {
+  Stack s;
+  s.top = -1;
+  return s;
+}
+int isEmpty(Stack s) { return (s.top == -1); }
+int isFull(Stack s) { return (s.top == 99); }
+int top(Stack s) {
+  if (isEmpty(s)) {
+    cout << "Empty Stack" << endl;
+    return -1;
+  } else {
+    return s.elements[s.top];
+  }
+}
+Stack push(Stack s, int x) {
+  if (isFull(s)) {
+    cout << "Stack is full" << endl;
+  } else {
+    s.elements[++s.top] = x;
+    cout << "Your pushed element got at idx: " << s.top << endl;
+  }
+  return s;
+}
+Stack pop(Stack s, int y) {
+  if (isEmpty(s)) {
+    cout << "Stack is Empty" << endl;
+  } else {
+    y = s.elements[s.top];
+    --s.top;
+    cout << "Here is the popped element: " << y << endl;
+  }
+  return s;
+}
+void display(Stack s) {
+  for (int i = s.top; i >= 0; i--) {
+    cout << s.elements[i] << " ";
+  }
+  cout << endl;
+}
+
+int main() {
+  Stack s = init();
+  s = push(s, 10);
+  s = push(s, 23);
+  s = push(s, 90);
+  cout << "Stack: ";
+  display(s);
+  cout << "top element: " << top(s) << endl;
+  int y = 0;
+  s = pop(s, y);
+  cout << "Current Stack after popping: ";
+  display(s);
+  cout << "top element: " << top(s);
+  return 0;
+}
